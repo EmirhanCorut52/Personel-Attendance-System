@@ -1,50 +1,56 @@
-# Welcome to your Expo app 👋
+# Bireysel Yoklama Sistemi
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Bireysel Yoklama Sistemi** öğrencilerin ders devam durumlarını şeffaf, düzenli ve anlık olarak takip edebilmeleri için geliştirilmiş, **çevrimdışı (offline)** çalışan bir mobil takip uygulamasıdır. 
 
-## Get started
+Özellikle yoğun ders programına sahip öğrencilerin, derslerindeki saat hesaplamalarını manuel yapmak yerine dijital bir asistan yardımıyla devamsızlık sınırlarını yönetmelerini sağlar.
 
-1. Install dependencies
+## 🚀 Öne Çıkan Özellikler
 
-   ```bash
-   npm install
-   ```
+* **Kişiselleştirilmiş Program:** Dönem başında alınan derslerin adını, haftalık saatini ve devamsızlık sınırını sisteme kaydedebilirsiniz.
+* **Haftalık Filtreleme:** Uygulama sadece ilgili günün derslerini karşınıza getirir.
+* **Akıllı Hesaplama:** "Girdim" veya "Girmedim" butonları ile tek dokunuşla yoklama bilgisini işleyebilir, kalan devamsızlık hakkınızı anlık olarak görebilirsiniz.
+* **Hatırlatıcı Bildirimler:** Ders saatleri yaklaştığında sistem otomatik bildirim göndererek yoklama girişini unutmamanızı sağlar.
+* **Yerel Veri Depolama:** Verileriniz cihazın yerel hafızasında (AsyncStorage) tutulur; üyelik veya internet bağlantısı gerektirmez.
 
-2. Start the app
+## 🛠️ Kullanılan Teknolojiler
 
-   ```bash
-   npx expo start
-   ```
+* **Framework:** [React Native](https://reactnative.dev/)
+* **Geliştirme Ortamı:** [Expo](https://expo.dev/)
+* **Veri Yönetimi:** @react-native-async-storage/async-storage
+* **Bildirimler:** expo-notifications
+* **Navigasyon:** React Navigation (Bottom Tabs)
 
-In the output, you'll find options to open the app in a
+## 📋 Kurulum ve Çalıştırma
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Projeyi yerel bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1.  **Depoyu Klonlayın:**
+    ```bash
+    git clone [https://github.com/EmirhanCorut52/Individual-Attendance-System.git](https://github.com/EmirhanCorut52/Individual-Attendance-System.git)
+    cd Individual-Attendance-System
+    ```
 
-## Get a fresh project
+2.  **Paketleri Yükleyin:**
+    ```bash
+    npm install @react-navigation/native
+    npx expo install react-native-screens react-native-safe-area-context
+    npm install @react-navigation/bottom-tabs
+    npx expo install @react-native-async-storage/async-storage
+    npx expo install expo-notifications
+    ```
 
-When you're ready, run:
+3.  **Projeyi Başlatın:**
+    ```bash
+    npx expo start
+    ```
 
-```bash
-npm run reset-project
-```
+4.  **Test Etme:**
+    Terminalde çıkan QR kodu telefonunuzdaki **Expo Go** uygulaması ile okutarak projeyi anında test edebilirsiniz.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🏗️ Sistem Akışı
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Uygulama temel olarak şu adımları izler:
+1.  **Ders Kaydı:** Ders adı ve devamsızlık limiti tanımlanır.
+2.  **Günlük Takip:** O günün dersleri listelenir ve katılım durumu girilir.
+3.  **Hesaplama Algoritması:** Girilmeyen ders saatleri toplam haktan düşülür.
+4.  **İstatistik:** Kalan haklar görsel uyarılarla (kritik sınır kontrolü) kullanıcıya sunulur.
