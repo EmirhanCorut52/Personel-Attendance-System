@@ -375,7 +375,11 @@ export default function DersProgramiScreen() {
               data: { dersId: ders.id },
               android: { channelId: "default" },
             },
-            trigger: { date: notifyAt },
+            trigger: {
+              type: Notifications.SchedulableTriggerInputTypes.DATE,
+              date: notifyAt,
+              channelId: "default",
+            },
           });
         } else {
           console.log(

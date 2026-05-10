@@ -93,7 +93,7 @@ export default function DersEkleScreen() {
       );
       Alert.alert(
         "Başarılı",
-        "Ders şablonu oluşturuldu. Şimdi programa ekleyebilirsin.",
+        "Ders oluşturuldu. Şimdi programa ekleyebilirsin.",
       );
       setDersAdi("");
       setHaftalikSaat("");
@@ -103,7 +103,7 @@ export default function DersEkleScreen() {
       templaterleriGetir();
     } catch (e) {
       console.log(e);
-      Alert.alert("Hata", "Şablon oluşturulamadı.");
+      Alert.alert("Hata", "Ders oluşturulamadı.");
     }
   };
 
@@ -131,7 +131,7 @@ export default function DersEkleScreen() {
       const dersler = mevcutDersler ? JSON.parse(mevcutDersler) : [];
       dersler.push(yeniDers);
       await AsyncStorage.setItem("@dersler", JSON.stringify(dersler));
-      Alert.alert("Başarılı", "Ders tablosuna eklendi!");
+      Alert.alert("Başarılı", "Ders programına eklendi!");
       setSinir("");
     } catch (e) {
       console.log(e);
@@ -215,7 +215,7 @@ export default function DersEkleScreen() {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button} onPress={dersEkle}>
-              <Text style={styles.buttonText}>Ders Tablosuna Ekle</Text>
+              <Text style={styles.buttonText}>Ders Programına Ekle</Text>
             </TouchableOpacity>
           </View>
         ) : (
@@ -248,7 +248,7 @@ export default function DersEkleScreen() {
             />
 
             <TouchableOpacity style={styles.button} onPress={templateOlustur}>
-              <Text style={styles.buttonText}>Şablon Oluştur</Text>
+              <Text style={styles.buttonText}>Ders Oluştur</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -286,7 +286,7 @@ export default function DersEkleScreen() {
                 />
               ) : (
                 <Text style={styles.boshMetin}>
-                  Henüz ders şablonu oluşturulmamış
+                  Henüz ders oluşturulmamış
                 </Text>
               )}
               <TouchableOpacity
